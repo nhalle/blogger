@@ -11,12 +11,17 @@
 <body>
   <div class= "container">
     <% include ./partials/nav %>
+    <h1><%= title %></h1>
     <section name = "content">
-      <h1><%= title %></h1>
-      <form method="post" action="" style="padding: 20px">
-	<button type="submit" class="btn btn-default">Delete</button>
+      <div class="card" style="width: 50%">
+      <div class="card-footer text-muted">
+	<form method="post" action="" style="padding: 20px">
+	  <a href="/blog" class="btn btn-default" role="button">Cancel</a>
+	<button type="submit" class="btn btn-danger">Delete</button>
       </form>
     </section>
+    </div>
+    </div>
   </div>
 </body>
 </html>

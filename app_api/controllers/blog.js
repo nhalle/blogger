@@ -29,10 +29,10 @@ module.exports.blogCreate = function(req, res) {
 /* GET a blog by the id */
 module.exports.blogReadOne = function(req,res) {
     console.log('Finding a single blog', req.params);
-    if (req.params && req.params.id) {
+    if (req.params && req.params.blogid) {
 	blogModel
-	    .findById(req.params.id)
-	    .exec(function(err, location) {
+	    .findById(req.params.blogid)
+	    .exec(function(err, blog) {
 		if (!blog) {
 		    sendJSONresponse(res, 404, {
 			"message": "id not found"
@@ -90,12 +90,12 @@ var buildBlogList = function(req, res, results){
 
 /* Update one Blog entry */
 module.exports.blogUpdateOne = function(req, res) {
-    console.log("Updating a blog entry with id of " + req.params.id);
+    console.log("Updating a blog entry with id of " + req.params.blogid);
     console.log(req.body);
     blogModel
 	.findOneAndUpdate(
-	    { _id: req.params.id },
-	    { $set: {"author": req.body.author, "blogTitle": req.body.blogTitle, "blogText": req.body.blogText}}
+	    { _id: req.params.blogid },
+	    { $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText}}
 	)
 	.exec(
 	    function(err, response) {
@@ -110,10 +110,10 @@ module.exports.blogUpdateOne = function(req, res) {
 
 /* Delete blog entry */
 module.exports.blogDeleteOne = function(req, res) {
-    console.log("Deleting blog entry with id of " + req.params.id);
+    console.log("Deleting blog entry with id of " + req.params.blogid);
     console.log(req.body);
     blogModel
-        .findByIdAndRemove(req.params.id)
+        .findByIdAndRemove(req.params.blogid)
         .exec (
 	    function(err, response) {
 		if (err) {

@@ -835,3 +835,738 @@ Mongoose connected to mongodb://localhost/myapp
 [0mHEAD / [32m200 [0m0.757 ms - 967[0m
 [0mGET / [32m200 [0m0.666 ms - 967[0m
 [0mGET / [32m200 [0m0.670 ms - 967[0m
+
+> blogger@0.0.0 start /home/bitnami/blogger
+> node ./bin/www
+
+(node:3200) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[0mGET /api/ [33m404 [0m19.164 ms - 1454[0m
+404
+Mongoose connected to mongodb://blogger:blogger@localhost/blogDB
+[0mGET / [36m304 [0m3.517 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m25.065 ms - 601[0m
+[0mGET /blog [36m304 [0m32.219 ms - -[0m
+[0mGET /blog/add [32m200 [0m1.490 ms - 1632[0m
+{ author: 'why', blogTitle: 'is', blogText: 'the' }
+{ _id: 5c8f19e13791d50c80d794a5,
+  author: 'why',
+  blogTitle: 'is',
+  blogText: 'the',
+  createdOn: 2019-03-18T04:09:05.120Z,
+  __v: 0 }
+[0mPOST /api/blog/ [32m201 [0m12.280 ms - 130[0m
+[0mPOST /blog/add [36m302 [0m19.142 ms - 54[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.677 ms - 685[0m
+[0mGET /blog [32m200 [0m6.424 ms - 6970[0m
+Finding a single blog { id: '5c8f110b2b99880ae58bca69' }
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+ReferenceError: blog is not defined
+    at /home/bitnami/blogger/app_api/controllers/blog.js:36:3
+    at /home/bitnami/blogger/node_modules/mongoose/lib/model.js:4698:16
+    at /home/bitnami/blogger/node_modules/mongoose/lib/utils.js:263:16
+    at _hooks.execPost (/home/bitnami/blogger/node_modules/mongoose/lib/query.js:4074:11)
+    at /home/bitnami/blogger/node_modules/kareem/index.js:135:16
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! blogger@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the blogger@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/bitnami/.npm/_logs/2019-03-18T04_09_10_508Z-debug.log
+(node:3560) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[0mGET /api/ [33m404 [0m18.498 ms - 1454[0m
+404
+Mongoose connected to mongodb://blogger:blogger@localhost/blogDB
+[0mGET / [36m304 [0m2.435 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m21.354 ms - 685[0m
+[0mGET /blog [36m304 [0m27.632 ms - -[0m
+[0mGET / [36m304 [0m1.241 ms - -[0m
+[0mGET / [36m304 [0m1.828 ms - -[0m
+[0mGET / [36m304 [0m0.717 ms - -[0m
+[0mGET / [36m304 [0m1.103 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m4.034 ms - 685[0m
+[0mGET /blog [36m304 [0m7.412 ms - -[0m
+[0mGET /blog/add [36m304 [0m1.115 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.241 ms - 685[0m
+[0mGET /blog [36m304 [0m6.782 ms - -[0m
+[0mGET / [36m304 [0m0.778 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.231 ms - 685[0m
+[0mGET /blog [36m304 [0m5.906 ms - -[0m
+[0mGET /blog/add [36m304 [0m1.705 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.185 ms - 685[0m
+[0mGET /blog [36m304 [0m5.782 ms - -[0m
+[0mGET /blog/add [36m304 [0m0.746 ms - -[0m
+[0mGET / [36m304 [0m0.958 ms - -[0m
+[0mGET / [36m304 [0m0.726 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.839 ms - 685[0m
+[0mGET /blog [36m304 [0m6.446 ms - -[0m
+[0mGET /blog/add [36m304 [0m0.758 ms - -[0m
+{ author: '', blogTitle: '', blogText: '' }
+{ _id: 5c8f2a07a104680de855e9cf,
+  author: '',
+  blogTitle: '',
+  blogText: '',
+  createdOn: 2019-03-18T05:17:59.020Z,
+  __v: 0 }
+[0mPOST /api/blog/ [32m201 [0m12.052 ms - 122[0m
+[0mPOST /blog/add [36m302 [0m17.589 ms - 54[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 },
+  { _id: 5c8f2a07a104680de855e9cf,
+    author: '',
+    blogTitle: '',
+    blogText: '',
+    createdOn: 2019-03-18T05:17:59.020Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.016 ms - 761[0m
+[0mGET /blog [32m200 [0m6.003 ms - 7691[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 },
+  { _id: 5c8f2a07a104680de855e9cf,
+    author: '',
+    blogTitle: '',
+    blogText: '',
+    createdOn: 2019-03-18T05:17:59.020Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.437 ms - 761[0m
+[0mGET /blog [36m304 [0m6.884 ms - -[0m
+[0mGET /muieblackcat [33m404 [0m1.050 ms - 1466[0m
+[0mGET //phpMyAdmin/scripts/setup.php [33m404 [0m0.858 ms - 1466[0m
+[0mGET //phpmyadmin/scripts/setup.php [33m404 [0m0.707 ms - 1466[0m
+[0mGET //myadmin/scripts/setup.php [33m404 [0m0.965 ms - 1466[0m
+[0mGET //MyAdmin/scripts/setup.php [33m404 [0m0.739 ms - 1466[0m
+[0mGET //scripts/setup.php [33m404 [0m0.869 ms - 1466[0m
+[0mGET //admin/scripts/setup.php [33m404 [0m0.589 ms - 1466[0m
+[0mGET //admin/pma/scripts/setup.php [33m404 [0m1.183 ms - 1466[0m
+[0mGET //admin/phpmyadmin/scripts/setup.php [33m404 [0m0.907 ms - 1466[0m
+[0mGET //db/scripts/setup.php [33m404 [0m0.666 ms - 1466[0m
+[0mGET //dbadmin/scripts/setup.php [33m404 [0m0.767 ms - 1466[0m
+[0mGET //myadmin/scripts/setup.php [33m404 [0m0.992 ms - 1466[0m
+[0mGET //mysqladmin/scripts/setup.php [33m404 [0m1.037 ms - 1466[0m
+[0mGET //typo3/phpmyadmin/scripts/setup.php [33m404 [0m1.093 ms - 1466[0m
+[0mGET //phpadmin/scripts/setup.php [33m404 [0m0.933 ms - 1466[0m
+[0mGET //pma/scripts/setup.php [33m404 [0m0.768 ms - 1466[0m
+[0mGET //web/phpMyAdmin/scripts/setup.php [33m404 [0m0.883 ms - 1466[0m
+[0mGET //xampp/phpmyadmin/scripts/setup.php [33m404 [0m0.752 ms - 1466[0m
+[0mGET //web/scripts/setup.php [33m404 [0m1.416 ms - 1466[0m
+[0mGET //php-my-admin/scripts/setup.php [33m404 [0m0.795 ms - 1466[0m
+[0mGET //websql/scripts/setup.php [33m404 [0m0.736 ms - 1466[0m
+[0mGET //phpMyAdmin-2/scripts/setup.php [33m404 [0m0.755 ms - 1466[0m
+[0mGET //_phpmyadmin/scripts/setup.php [33m404 [0m0.576 ms - 1466[0m
+[0mGET //administrator/components/com_joommyadmin/phpmyadmin/scripts/setup.php [33m404 [0m0.541 ms - 1466[0m
+[0mGET //apache-default/phpmyadmin/scripts/setup.php [33m404 [0m0.853 ms - 1466[0m
+[0mGET //blog/phpmyadmin/scripts/setup.php [33m404 [0m0.577 ms - 1466[0m
+[0mGET //cpanelphpmyadmin/scripts/setup.php [33m404 [0m0.613 ms - 1466[0m
+[0mGET //cpphpmyadmin/scripts/setup.php [33m404 [0m0.648 ms - 1466[0m
+[0mGET //forum/phpmyadmin/scripts/setup.php [33m404 [0m0.795 ms - 1466[0m
+[0mGET //phpmyadmin/scripts/setup.php [33m404 [0m0.804 ms - 1466[0m
+[0mGET //phpMyAdmin-2.10.0.0/scripts/setup.php [33m404 [0m0.735 ms - 1466[0m
+[0mGET //phpMyAdmin-2.10.0.1/scripts/setup.php [33m404 [0m0.703 ms - 1466[0m
+[0mGET //phpMyAdmin-2.10.0.2/scripts/setup.php [33m404 [0m0.755 ms - 1466[0m
+[0mGET //phpMyAdmin-2.10.1.0/scripts/setup.php [33m404 [0m0.821 ms - 1466[0m
+[0mGET //phpMyAdmin-2.10.2.0/scripts/setup.php [33m404 [0m0.640 ms - 1466[0m
+[0mGET //phpMyAdmin-2.11.0.0/scripts/setup.php [33m404 [0m0.750 ms - 1466[0m
+[0mGET //phpMyAdmin-2.11.1-all-languages/scripts/setup.php [33m404 [0m0.525 ms - 1466[0m
+[0mGET //phpMyAdmin-2.11.1.0/scripts/setup.php [33m404 [0m0.628 ms - 1466[0m
+[0mGET //phpMyAdmin-2.11.1.1/scripts/setup.php [33m404 [0m0.802 ms - 1466[0m
+[0mGET //phpMyAdmin-2.11.1.2/scripts/setup.php [33m404 [0m0.749 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.1-pl2/scripts/setup.php [33m404 [0m0.824 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.1-pl3/scripts/setup.php [33m404 [0m1.208 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.4-pl3/scripts/setup.php [33m404 [0m0.801 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.4-pl4/scripts/setup.php [33m404 [0m0.698 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.4-rc1/scripts/setup.php [33m404 [0m0.641 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.5/scripts/setup.php [33m404 [0m0.712 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.6/scripts/setup.php [33m404 [0m0.737 ms - 1466[0m
+[0mGET //phpMyAdmin-2.6.9/scripts/setup.php [33m404 [0m0.618 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.0-beta1/scripts/setup.php [33m404 [0m0.703 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.0-pl1/scripts/setup.php [33m404 [0m0.797 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.0-pl2/scripts/setup.php [33m404 [0m0.776 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.0-rc1/scripts/setup.php [33m404 [0m0.812 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.5/scripts/setup.php [33m404 [0m1.299 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.6/scripts/setup.php [33m404 [0m0.700 ms - 1466[0m
+[0mGET //phpMyAdmin-2.7.7/scripts/setup.php [33m404 [0m0.741 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.2.3/scripts/setup.php [33m404 [0m0.758 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.2/scripts/setup.php [33m404 [0m0.675 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.3/scripts/setup.php [33m404 [0m0.705 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.4/scripts/setup.php [33m404 [0m0.626 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.5/scripts/setup.php [33m404 [0m0.683 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.6/scripts/setup.php [33m404 [0m0.842 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.7/scripts/setup.php [33m404 [0m0.827 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.8/scripts/setup.php [33m404 [0m0.714 ms - 1466[0m
+[0mGET //phpMyAdmin-2.8.9/scripts/setup.php [33m404 [0m0.709 ms - 1466[0m
+[0mGET //phpMyAdmin-2.9.0-rc1/scripts/setup.php [33m404 [0m1.196 ms - 1466[0m
+[0mGET //phpMyAdmin-2.9.0.1/scripts/setup.php [33m404 [0m0.804 ms - 1466[0m
+[0mGET //phpMyAdmin-2.9.0/scripts/setup.php [33m404 [0m1.693 ms - 1466[0m
+[0mGET //phpMyAdmin-2.9.1/scripts/setup.php [33m404 [0m0.668 ms - 1466[0m
+[0mGET //phpMyAdmin-2.9.2/scripts/setup.php [33m404 [0m0.774 ms - 1466[0m
+[0mGET //phpMyAdmin-3.0.0-rc1-english/scripts/setup.php [33m404 [0m0.771 ms - 1466[0m
+[0mGET //phpMyAdmin-3.0.0.0-all-languages/scripts/setup.php [33m404 [0m0.670 ms - 1466[0m
+[0mGET //phpMyAdmin-3.0.1.0/scripts/setup.php [33m404 [0m0.904 ms - 1466[0m
+[0mGET //phpMyAdmin-3.0.1.1/scripts/setup.php [33m404 [0m0.829 ms - 1466[0m
+[0mGET //phpMyAdmin-3.1.0.0-english/scripts/setup.php [33m404 [0m6.337 ms - 1466[0m
+[0mGET //phpMyAdmin-3.1.0.0/scripts/setup.php [33m404 [0m0.886 ms - 1466[0m
+[0mGET //phpMyAdmin-3.1.1.0-all-languages/scripts/setup.php [33m404 [0m0.810 ms - 1466[0m
+[0mGET //phpMyAdmin-3.1.2.0-all-languages/scripts/setup.php [33m404 [0m0.855 ms - 1466[0m
+[0mGET //phpMyAdmin-3.1.2.0/scripts/setup.php [33m404 [0m0.701 ms - 1466[0m
+[0mGET //phpMyAdmin-3.4.3.1/scripts/setup.php [33m404 [0m0.584 ms - 1466[0m
+[0mGET //phpMyAdmin2/scripts/setup.php [33m404 [0m0.493 ms - 1466[0m
+[0mGET //phpMyAdmin3/scripts/setup.php [33m404 [0m0.554 ms - 1466[0m
+[0mGET / [36m304 [0m4.472 ms - -[0m
+Getting blogs list
+[ { _id: 5c8ef0918ba858036c8f8fb4,
+    author: 'Hi',
+    blogTitle: 'my',
+    blogText: 'name',
+    createdOn: 2019-03-18T01:12:49.880Z,
+    __v: 0 },
+  { _id: 5c8ef6d17aa59203e1414f77,
+    author: 'YES ',
+    blogTitle: 'it ',
+    blogText: 'is',
+    createdOn: 2019-03-18T01:39:29.052Z,
+    __v: 0 },
+  { _id: 5c8ef7297aa59203e1414f78,
+    author: 'why',
+    blogTitle: 'thank',
+    blogText: 'you',
+    createdOn: 2019-03-18T01:40:57.409Z,
+    __v: 0 },
+  { _id: 5c8f00557d9ac9072359f676,
+    author: 'delete',
+    blogTitle: 'this',
+    blogText: 'now',
+    createdOn: 2019-03-18T02:20:05.289Z,
+    __v: 0 },
+  { _id: 5c8f0999d11c920939214176,
+    author: 'Another',
+    blogTitle: 'Post',
+    blogText: 'Now',
+    createdOn: 2019-03-18T02:59:37.334Z,
+    __v: 0 },
+  { _id: 5c8f10f52b99880ae58bca68,
+    author: 'Hi',
+    blogTitle: 'My',
+    blogText: 'Name',
+    createdOn: 2019-03-18T03:31:01.359Z,
+    __v: 0 },
+  { _id: 5c8f110b2b99880ae58bca69,
+    author: 'Hi',
+    blogTitle: 'I',
+    blogText: 'am',
+    createdOn: 2019-03-18T03:31:23.262Z,
+    __v: 0 },
+  { _id: 5c8f19e13791d50c80d794a5,
+    author: 'why',
+    blogTitle: 'is',
+    blogText: 'the',
+    createdOn: 2019-03-18T04:09:05.120Z,
+    __v: 0 },
+  { _id: 5c8f2a07a104680de855e9cf,
+    author: '',
+    blogTitle: '',
+    blogText: '',
+    createdOn: 2019-03-18T05:17:59.020Z,
+    __v: 0 } ]
+[0mGET /api/blog [32m200 [0m3.955 ms - 761[0m
+[0mGET /blog [36m304 [0m11.996 ms - -[0m
+Finding a single blog { blogid: '5c8ef0918ba858036c8f8fb4' }
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+ReferenceError: blog is not defined
+    at /home/bitnami/blogger/app_api/controllers/blog.js:36:3
+    at /home/bitnami/blogger/node_modules/mongoose/lib/model.js:4698:16
+    at /home/bitnami/blogger/node_modules/mongoose/lib/utils.js:263:16
+    at _hooks.execPost (/home/bitnami/blogger/node_modules/mongoose/lib/query.js:4074:11)
+    at /home/bitnami/blogger/node_modules/kareem/index.js:135:16
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
