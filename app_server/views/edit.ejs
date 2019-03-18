@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"\
- rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9J\                
-voRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <% include ./partials/nav %>
-    <section name = "content">
-    <h1><%= title %></h1>
-    <p>Feature under construction.</p>
-    </section>
-  </body>
+      <title><%= title %></title>
+          <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstra\
+p.min.css"\
+ rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"\
+   crossorigin="anonymous">
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></href>
+       </head>
+       <body>
+       <div class = "container">
+	<% include ./partials/nav %>
+	<div class="card" style="width: 50%">
+	     <form id="blogPost" action="blog/edit/" method="post" role="form" style="padding: 20px">
+
+      	     <div class= "form-group">
+
+             <label for="blogTitle" class="text-primary">Title</label>
+	              <textarea id="blogTitle" name="blogTitle" class="form-control" value="<%= blog.blogTitle %>"></textarea>
+
+          <label for="blogText" class="text-primary">Text</label>
+	              <textarea id="blogText" name="blogText" rows="5" class="form-control" value="<%= blog.blogText %>"></textarea>
+		</div>
+			          <button type="submit" class="btn btn-default">Submit Changes</button>
+		</form>
+	</div>
+	</div>
+	</body>
 </html>
+					      
