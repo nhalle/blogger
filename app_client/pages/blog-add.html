@@ -1,0 +1,21 @@
+<div ng-controller="AddController as vm">
+<div class = "container">
+  <div class="card" style="width: 50%">
+    <form name="userForm" ng-submit="vm.submit()" ng-controller="AddController" style="padding: 20px">
+      <div class= "form-group">
+
+        <label for="author" class="text-primary">Author</label>
+        <input id="author" name="author" class="form-control"/>
+
+        <label for="blogTitle" class="text-primary">Title</label>
+        <textarea id="blogTitle" name="blogTitle" class="form-control"></textarea>
+
+        <label for="blogText" class="text-primary">Text</label>
+        <textarea id="blogText" name="blogText" rows="5" class="form-control"></textarea>
+      </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" href=href="#/blog-list" role="button" class="btn btn-danger">Cancel</button>
+    </form>
+  </div>
+</div>
+</div>

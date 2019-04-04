@@ -1,0 +1,23 @@
+<div ng-controller="DeleteController as vm">
+<p>
+<div class= "container">
+  <form name="userForm" ng-submit="vm.submit()" ng-controller="DeleteController" style="padding: 20px">
+  <section name = "content">
+    <div class="card mt-3"style="width: 50%">
+      <div class="card-header">
+        <h5 class="card-text">{{vm.blogs.author}}</h5>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title">{{vm.blogs.blogTitle}}</h5>
+        <p class="card-text">{{vm.blogs.blogText}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        <a href="#/blog-list" class="btn btn-success" role="button">Return</a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </section>
+  </form>
+</div>
+</p>
+</div>

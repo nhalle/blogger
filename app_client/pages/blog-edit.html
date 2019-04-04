@@ -1,0 +1,19 @@
+<div ng-controller="EditController as vm">
+  <p>
+<div class = "container">
+<div class="card" style="width: 50%">
+     <form name="userForm" ng-submit="vm.submit()" ng-controller="EditController" style="padding: 20px">
+      <div class= "form-group">
+           <label for="blogTitle" class="text-primary">Title</label>
+              <textarea id="blogTitle" name="blogTitle" class="form-control">{{vm.blogs.blogTitle}}</textarea>
+
+            <label for="blogText" class="text-primary">Text</label>
+              <textarea id="blogText" name="blogText" rows="5" class="form-control">{{vm.blogs.blogText}}</textarea>
+      </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a href="#/blog-list" class="btn btn-danger" role="button">Cancel</a>
+     </form>
+</div>
+</div>
+  </p>
+</div>
