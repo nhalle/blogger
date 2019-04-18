@@ -34,7 +34,19 @@ app.config(function($routeProvider, $locationProvider) {
           controllerAs: 'vm'
 		  })
 
+      .when('/register', {
+        templateUrl: '/auth/register.html',
+        controller: 'RegisterController',
+        controllerAs: 'vm'
+      })
+      .when('/login', {
+        templateUrl: '/auth/login.html',
+        controller: 'LoginController',
+        controllerAs: 'vm'
+      })
+
       .otherwise({redirectTo: '/'});
+
     });
 
     //*** REST Web API functions ***
@@ -46,16 +58,16 @@ app.config(function($routeProvider, $locationProvider) {
         return $http.get('/api/blog/' + id);
     }
 
-    function blogUpdateOne($http, id, data) {
-        return $http.put('/api/blog/' + id, data);
+    function blogUpdateOne($http, id, data, authentication) {
+        return $http.put('/api/blog/' + id, data, { headers: { Authorization: 'Bearer '+ authentication.getToken() }} );
     }
 
-    function blogDeleteOne($http, id) {
-        return $http.delete('/api/blog/' + id);
+    function blogDeleteOne($http, id, authentication,) {
+        return $http.delete('/api/blog/' + id, { headers: { Authorization: 'Bearer '+ authentication.getToken() }} );
     }
 
-    function blogCreate($http, data) {
-        return $http.post('/api/blog/', data);
+    function blogCreate($http, data, authentication,) {
+        return $http.post('/api/blog/', data, { headers: { Authorization: 'Bearer '+ authentication.getToken() }} );
     }
 
 
@@ -89,7 +101,7 @@ app.config(function($routeProvider, $locationProvider) {
           });
     });
 
-    app.controller('AddController',[ '$http', '$location',  function AddController($http, $location) {
+    app.controller('AddController',[ '$http', '$location', 'authentication', function AddController($http, $location, authentication) {
         var vm = this;
         vm.blogs = {};
         vm.pageHeader = {
@@ -103,7 +115,7 @@ app.config(function($routeProvider, $locationProvider) {
             data.blogTitle = userForm.blogTitle.value;
             data.blogText = userForm.blogText.value;
 
-            blogCreate($http, data)
+            blogCreate($http, data, authentication)
               .then(function successCallback(response) {
                 vm.message = "Book data updated!";
                 $location.path('blog-list');   // Refer to blog for info on StateProvder
@@ -115,7 +127,7 @@ app.config(function($routeProvider, $locationProvider) {
 
     }]);
 
-    app.controller('EditController', [ '$http', '$routeParams', '$location', function EditController($http, $routeParams, $location) {
+    app.controller('EditController', [ '$http', '$routeParams', '$location', 'authentication', function EditController($http, $routeParams, $location, authentication) {
         var vm = this;
         vm.blogs = {};       // Start with a blank Blog
         vm.id = $routeParams.id;    // Get id from $routParams which must be injected and passed into controller
@@ -139,7 +151,7 @@ app.config(function($routeProvider, $locationProvider) {
           data.blogTitle = userForm.blogTitle.value;
           data.blogText = userForm.blogText.value;
 
-            blogUpdateOne($http, vm.id, data)
+            blogUpdateOne($http, vm.id, data, authentication)
               .then(function successCallback(response) {
                 vm.message = "Book data updated!";
                 $location.path('blog-list');   // Refer to blog for info on StateProvder
@@ -151,7 +163,7 @@ app.config(function($routeProvider, $locationProvider) {
     }]);
 
     //*** Controllers ***
-    app.controller('DeleteController', [ '$http', '$routeParams', '$location', function DeleteController($http, $routeParams, $location) {
+    app.controller('DeleteController', [ '$http', '$routeParams', '$location', 'authentication', function DeleteController($http, $routeParams, $location, authentication) {
         var vm = this;
         vm.blogs = {};       // Start with a blank Blog
         vm.id = $routeParams.id;    // Get id from $routParams which must be injected and passed into controller
@@ -172,7 +184,7 @@ app.config(function($routeProvider, $locationProvider) {
 
           vm.submit = function() {
 
-              blogDeleteOne($http, vm.id)
+              blogDeleteOne($http, vm.id, authentication)
                 .then(function successCallback(response) {
                   vm.message = "Book data updated!";
                   $location.path('blog-list');   // Refer to blog for info on StateProvder
