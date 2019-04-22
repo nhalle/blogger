@@ -8,17 +8,23 @@
 <div class= "container">
   <form name="userForm" ng-submit="vm.submit()" ng-controller="DeleteController" style="padding: 20px">
   <section name = "content">
-    <div class="card mt-3"style="width: 50%">
-      <div class="card-header">
-        <h5 class="card-text">{{vm.blogs.author}}</h5>
-      </div>
-      <div class="card-body text-center">
+    <div class="card mt-3 border border-primary" style="width: 50%">
+      <div class="card-header"></div>
+      <div class="card-body">
         <h5 class="card-title">{{vm.blogs.blogTitle}}</h5>
         <p class="card-text">{{vm.blogs.blogText}}</p>
       </div>
-      <div class="card-footer text-muted">
-        <a href="#/blog-list" class="btn btn-success" role="button">Return</a>
-        <button type="submit" class="btn btn-danger">Delete</button>
+      <div class="card-footer">
+        <div class = "col-sm">
+          <ul class="nav justify-content-end nav-pills card-header-pills">
+            <li class="nav-item">
+              <a href="#/blog-list" class = "btn btn-default" role="button"><div class="nav-link active"><i class="fa fa-rotate-left"></div></i></a>
+            </li>
+            <li class="nav-item">
+              <button type="submit" class = "btn btn-default"><div class="nav-link active"><i class="fa fa-trash"></i></div></button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

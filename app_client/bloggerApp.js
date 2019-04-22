@@ -71,7 +71,13 @@ app.config(function($routeProvider, $locationProvider) {
     }
 
 
-
+    function getTimeString(){
+        var date = new Date();
+        //var time = date.toJSON().slice(0,10).replace(/-/g,'/');
+        var time = date.toLocaleDateString();
+        time += ' ' + date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+        return time;
+    }
 
 
     //*** Controllers ***
@@ -111,9 +117,11 @@ app.config(function($routeProvider, $locationProvider) {
         // Submit function attached to ViewModel for use in form
         vm.submit = function() {
             var data = vm.blogs;
-            data.author = userForm.author.value;
+            data.author = authentication.currentUser().name;
+            data.email = authentication.currentUser().email;
             data.blogTitle = userForm.blogTitle.value;
             data.blogText = userForm.blogText.value;
+            data.createdOn = getTimeString();
 
             blogCreate($http, data, authentication)
               .then(function successCallback(response) {
@@ -150,6 +158,7 @@ app.config(function($routeProvider, $locationProvider) {
           var data = vm.blogs;
           data.blogTitle = userForm.blogTitle.value;
           data.blogText = userForm.blogText.value;
+          data.createdOn = getTimeString();
 
             blogUpdateOne($http, vm.id, data, authentication)
               .then(function successCallback(response) {

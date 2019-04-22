@@ -3,12 +3,9 @@
 
 <div ng-controller="AddController as vm">
 <div class = "container">
-  <div class="card" style="width: 50%">
+  <div class="card mt-3 border border-primary" style="width: 50%">
     <form name="userForm" ng-submit="vm.submit()" ng-controller="AddController" style="padding: 20px">
       <div class= "form-group">
-
-        <label for="author" class="text-primary">Author</label>
-        <input id="author" name="author" class="form-control"/>
 
         <label for="blogTitle" class="text-primary">Title</label>
         <textarea id="blogTitle" name="blogTitle" class="form-control"></textarea>
@@ -16,8 +13,16 @@
         <label for="blogText" class="text-primary">Text</label>
         <textarea id="blogText" name="blogText" rows="5" class="form-control"></textarea>
       </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button type="submit" href=href="#/blog-list" role="button" class="btn btn-danger">Cancel</button>
+          <div class = "col-sm">
+            <ul class="nav justify-content-end nav-pills card-header-pills">
+              <li class="nav-item">
+                <button type="submit" class="btn btn-default"><div class="nav-link active"><i class="fa fa-paper-plane"></div></i></button>
+              </li>
+              <li class="nav-item">
+                <a href="#/blog-list" class = "btn btn-default" role="button"><div class="nav-link active"><i class="fa fa-rotate-left"></div></i></a>
+              </li>
+            </ul>
+          </div>
     </form>
   </div>
 </div>

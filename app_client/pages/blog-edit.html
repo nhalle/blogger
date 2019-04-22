@@ -5,7 +5,7 @@
 <div ng-controller="EditController as vm">
   <p>
 <div class = "container">
-<div class="card" style="width: 50%">
+<div class="card mt-3 border border-primary" style="width: 50%">
      <form name="userForm" ng-submit="vm.submit()" ng-controller="EditController" style="padding: 20px">
       <div class= "form-group">
            <label for="blogTitle" class="text-primary">Title</label>
@@ -14,8 +14,16 @@
             <label for="blogText" class="text-primary">Text</label>
               <textarea id="blogText" name="blogText" rows="5" class="form-control">{{vm.blogs.blogText}}</textarea>
       </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-        <a href="#/blog-list" class="btn btn-danger" role="button">Cancel</a>
+      <div class = "col-sm">
+        <ul class="nav justify-content-end nav-pills card-header-pills">
+          <li class="nav-item">
+            <button type="submit" class="btn btn-default"><div class="nav-link active"><i class="fa fa-paper-plane"></div></i></button>
+          </li>
+          <li class="nav-item">
+            <a href="#/blog-list" class = "btn btn-default" role="button"><div class="nav-link active"><i class="fa fa-rotate-left"></div></i></a>
+          </li>
+        </ul>
+      </div>
      </form>
 </div>
 </div>

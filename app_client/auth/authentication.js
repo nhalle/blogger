@@ -10,7 +10,7 @@ app.service('authentication', authentication);
         };
 
         var getToken = function () {
-            return $window.localStorage['blog-token'];
+            return $window.localStorage.getItem('blog-token');
         };
 
         var register = function(user) {
@@ -26,19 +26,30 @@ app.service('authentication', authentication);
         };
 
         var logout = function() {
-            $window.localStorage['blog-token'] ='nada';
+            //$window.localStorage['blog-token'] = "undefined";
+            $window.localStorage.removeItem('blog-token');
         };
 
         var isLoggedIn = function() {
           var token = getToken();
+          if(token == null){
+            console.log("Gone fishing")
+            return false;
+          }
+          else{
+            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            return payload.exp > Date.now() / 1000;
+          }
 
-          if(token != 'nada'){
+          /*
+          if(token || token != null){
             var payload = JSON.parse($window.atob(token.split('.')[1]));
 
             return payload.exp > Date.now() / 1000;
           } else {
             return false;
           }
+          */
         };
 
         var currentUser = function() {

@@ -8,13 +8,15 @@ var sendJSONresponse = function(res, status, content){
 
 /* POST a new blog */
 /* /api/blog */
-module.exports.blogCreate = function(req, res) {	
+module.exports.blogCreate = function(req, res) {
     console.log(req.body);
     blogModel
 	.create({
 	    author: req.body.author,
+      email: req.body.email,
 	    blogTitle: req.body.blogTitle,
-	    blogText: req.body.blogText
+	    blogText: req.body.blogText,
+      createdOn: req.body.createdOn
 	}, function(err, blog) {
 	    if (err) {
 		console.log(err);
@@ -80,8 +82,10 @@ var buildBlogList = function(req, res, results){
     results.forEach(function(obj) {
 	blogs.push({
 	    author: obj.author,
+      email: obj.email,
 	    blogTitle: obj.blogTitle,
 	    blogText: obj.blogText,
+      createdOn: obj.createdOn,
 	    _id: obj._id
 	});
     });
@@ -95,7 +99,7 @@ module.exports.blogUpdateOne = function(req, res) {
     blogModel
 	.findOneAndUpdate(
 	    { _id: req.params.blogid },
-	    { $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText}}
+	    { $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText, "createdOn": req.body.createdOn}}
 	)
 	.exec(
 	    function(err, response) {
@@ -124,4 +128,3 @@ module.exports.blogDeleteOne = function(req, res) {
 	    }
 	);
 };
-
