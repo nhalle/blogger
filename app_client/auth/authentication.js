@@ -74,7 +74,7 @@ app.service('authentication', authentication);
         };
 }
 
-app.controller('LoginController', [ '$http', '$location', 'authentication', function LoginController($htttp, $location, authentication) {
+app.controller('LoginController', [ '$http', '$location', 'authentication', function LoginController($http, $location, authentication) {
     var vm = this;
 
     vm.pageHeader = {
@@ -119,7 +119,7 @@ app.controller('LoginController', [ '$http', '$location', 'authentication', func
     };
  }]);
 
-app.controller('RegisterController', [ '$http', '$location', 'authentication', function RegisterController($htttp, $location, authentication) {
+app.controller('RegisterController', [ '$http', '$location', 'authentication', function RegisterController($http, $location, authentication) {
     var vm = this;
 
     vm.pageHeader = {

@@ -6,6 +6,7 @@
     <form name="userForm" ng-submit="vm.submit()" ng-controller="ListController" style="padding: 20px">
     <div class="container">
     <div ng-repeat="blog in vm.blogs">
+      <span ng-bind="$index"></span>: <span ng-bind="blog._id"></span>
         <div class="card mt-3 border border-primary" style="width: 50%">
             <div class="card-header"></div>
         <div class="card-body text-center">
@@ -15,9 +16,34 @@
         </div>
 
         <footer></footer>
+        <h6>Comments {{blog._id}}</h6>
+        <div class = "card-footer" ng-show="vm.isLoggedIn()">
+          <form name="userForm" ng-submit="vm.submit(blog._id)" ng-controller="ListController" style="padding: 20px">
+            <div class="form-group">
+              <textarea class="form-control" id="cmtText" rows="3" name="cmtText" placeholder="Write your comment here"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Post">
+          </form>
         </div>
-    </div>
-    </div>
-  </form>
+        </div>
+        <div ng-repeat = "cmt in blog.cmts">
+          <div class="card mt-3 border border-default" style="width: 50%">
+            <div class="card-body text-center">
+              <p class = "card-text">{{cmt.cmtText}}</p>
+              <p class = "card-text"><small><i>{{cmt.author}} @ {{cmt.createdOn}}</i></small></p>
+            </div>
+            <div class = "card-footer">
+              <ul class="nav justify-content-end nav-pills card-header-pills">
+	               <li class="nav-item" ng-if="vm.isLoggedIn()">
+		                 <form ng-submit="vm.deleteComment(cmt._id)">
+                       <button ng-show="vm.currentUser().email == cmt.email" class="btn btn-outline-success" type="submit"><i class="fa fa-trash"></i></button>
+		                  </form>
+                 </li>
+	             </ul>
+             </div>
+           </div>
+         </div>
+       </div>
+     </form>
   </p>
 </div>
