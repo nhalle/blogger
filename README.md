@@ -1,4 +1,4 @@
-# Blogging Web Application
+# Blogger Web Application
 
 This is a MEAN stack blogging web application developed during my undergraduate studies. This project shows the development of the MVC architecture from a basic blog with minimum components to a full breadth web application with user authentication and live messaging.
 
